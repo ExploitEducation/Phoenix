@@ -1,7 +1,7 @@
 /*
- * phoenix/heap-zero, by https://exploit.education
+ * phoenix/heap-three, by https://exploit.education
  *
- * This level is linked against //gee.cs.oswego.edu/pub/misc/malloc-2.7.2.c
+ * This level is linked against ftp://gee.cs.oswego.edu/pub/misc/malloc-2.7.2.c
  * version 2.7.2, with a SHA1 sum of 407329d164e4989b59b9a828760acb720dc5c7db
  * more commonly known as "dlmalloc", Doug Lea Malloc
  *
@@ -26,7 +26,7 @@
 
 void winner() {
   printf("Level was successfully completed at @ %ld seconds past the Epoch\n",
-         time(NULL));
+      time(NULL));
 }
 
 int main(int argc, char **argv) {

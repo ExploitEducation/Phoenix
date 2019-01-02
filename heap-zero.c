@@ -36,7 +36,6 @@ void nowinner() {
 }
 
 int main(int argc, char **argv) {
-  void *discard;
   struct data *d;
   struct fp *f;
   int i;
@@ -47,14 +46,6 @@ int main(int argc, char **argv) {
     printf("Please specify an argument to copy :-)\n");
     exit(1);
   }
-
-  /*
-   * https://github.com/esmil/musl/blob/master/src/ldso/dynlink.c#L396-L416
-   * work around the cleverness of the dynamic linker reclaiming unused
-   * writable pages of shared libraries.
-   */
-
-  for (i = 0; i < 3; i++) discard = malloc(sizeof(struct data));
 
   d = malloc(sizeof(struct data));
   f = malloc(sizeof(struct fp));

@@ -36,8 +36,8 @@ int main(int argc, char **argv) {
   if (changeme == 0x0d0a090a) {
     puts("Well done, you have successfully set changeme to the correct value");
   } else {
-    printf("Almost! changeme is currently 0x%08x, we want 0x0d0a090a\n",
-           changeme);
+    printf(
+        "Almost! changeme is currently 0x%08x, we want 0x0d0a090a\n", changeme);
   }
 
   exit(0);

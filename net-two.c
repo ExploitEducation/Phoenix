@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
   setvbuf(stdout, NULL, _IONBF, 0);
   setvbuf(stderr, NULL, _IONBF, 0);
   printf("%s\nFor this level, sizeof(long) == %ld, keep that in mind :)\n",
-         BANNER, sizeof(long));
+      BANNER, sizeof(long));
 
   if (getrandom((void *)&quad, sizeof(quad), 0) != sizeof(quad)) {
     errx(1, "unable to getrandom(%d bytes)", sizeof(quad));
@@ -45,7 +45,7 @@ int main(int argc, char **argv) {
     printf("You have successfully passed this level, well done!\n");
   } else {
     printf("Whoops, better luck next time. Receieved %lu, wanted %lu\n", wanted,
-           result);
+        result);
   }
 
   return 0;

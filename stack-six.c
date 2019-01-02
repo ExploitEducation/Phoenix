@@ -16,12 +16,25 @@
 #define BANNER \
   "Welcome to " LEVELNAME ", brought to you by https://exploit.education"
 
-char *ret;
+char *what = GREET;
+
+char *greet(char *who) {
+  char buffer[128];
+  int maxSize;
+
+  maxSize = strlen(who);
+  if (maxSize > (sizeof(buffer) - /* ensure null termination */ 1)) {
+    maxSize = sizeof(buffer) - 1;
+  }
+
+  strcpy(buffer, what);
+  strncpy(buffer + strlen(buffer), who, maxSize);
+
+  return strdup(buffer);
+}
 
 int main(int argc, char **argv) {
-  char buffer[128];
   char *ptr;
-
   printf("%s\n", BANNER);
 
   ptr = getenv("ExploitEducation");
@@ -31,15 +44,7 @@ int main(int argc, char **argv) {
 
     errx(1, "Please specify an environment variable called ExploitEducation");
   }
-  ret = ptr;
 
-  strcpy(buffer, "its a pleasure to meet you");
-  strncpy(buffer + strlen(buffer), ptr,
-          sizeof(buffer) - /* make sure it stays null terminated */ 1);
-
-  // Work around GCC explicitly setting the return value to 0
-  //
-  // Previously, the compiler would return the value last set
-  // (the return value from strncpy).
-  return ret;
+  printf("%s\n", greet(ptr));
+  return 0;
 }

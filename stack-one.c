@@ -34,7 +34,7 @@ int main(int argc, char **argv) {
     puts("Well done, you have successfully set changeme to the correct value");
   } else {
     printf("Getting closer! changeme is currently 0x%08x, we want 0x496c5962\n",
-           changeme);
+        changeme);
   }
 
   exit(0);

@@ -34,8 +34,8 @@ int main(int argc, char **argv) {
   if (changeme == 0x64457845) {
     puts("Well done, the 'changeme' variable has been changed correctly!");
   } else {
-    printf("Better luck next time - got 0x%08x, wanted 0x64457845!\n",
-           changeme);
+    printf(
+        "Better luck next time - got 0x%08x, wanted 0x64457845!\n", changeme);
   }
 
   exit(0);

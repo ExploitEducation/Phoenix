@@ -32,8 +32,8 @@ int main(int argc, char **argv) {
   sprintf(dest, buffer);
 
   if (changeme != 0x45764f6c) {
-    printf("Uh oh, 'changeme' is not the magic value, it is 0x%08x\n",
-           changeme);
+    printf(
+        "Uh oh, 'changeme' is not the magic value, it is 0x%08x\n", changeme);
   } else {
     puts("Well done, the 'changeme' variable has been changed correctly!");
   }
