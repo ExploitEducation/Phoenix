@@ -23,7 +23,6 @@ struct heapStructure {
 
 int main(int argc, char **argv) {
   struct heapStructure *i1, *i2;
-  int i;
 
   i1 = malloc(sizeof(struct heapStructure));
   i1->priority = 1;

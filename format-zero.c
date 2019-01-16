@@ -17,8 +17,10 @@
   "Welcome to " LEVELNAME ", brought to you by https://exploit.education"
 
 int main(int argc, char **argv) {
-  volatile int changeme;
-  char dest[32];
+  struct {
+    char dest[32];
+    volatile int changeme;
+  } locals;
   char buffer[16];
 
   printf("%s\n", BANNER);
@@ -28,11 +30,11 @@ int main(int argc, char **argv) {
   }
   buffer[15] = 0;
 
-  changeme = 0;
+  locals.changeme = 0;
 
-  sprintf(dest, buffer);
+  sprintf(locals.dest, buffer);
 
-  if (changeme != 0) {
+  if (locals.changeme != 0) {
     puts("Well done, the 'changeme' variable has been changed!");
   } else {
     puts(

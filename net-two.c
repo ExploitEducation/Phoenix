@@ -22,8 +22,8 @@ int main(int argc, char **argv) {
 
   setvbuf(stdout, NULL, _IONBF, 0);
   setvbuf(stderr, NULL, _IONBF, 0);
-  printf("%s\nFor this level, sizeof(long) == %ld, keep that in mind :)\n",
-      BANNER, sizeof(long));
+  printf("%s\nFor this level, sizeof(long) == %d, keep that in mind :)\n",
+      BANNER, (int)sizeof(long));
 
   if (getrandom((void *)&quad, sizeof(quad), 0) != sizeof(quad)) {
     errx(1, "unable to getrandom(%d bytes)", sizeof(quad));

@@ -18,8 +18,10 @@
   "Welcome to " LEVELNAME ", brought to you by https://exploit.education"
 
 int main(int argc, char **argv) {
-  volatile int changeme;
-  char buffer[64];
+  struct {
+    char buffer[64];
+    volatile int changeme;
+  } locals;
 
   printf("%s\n", BANNER);
 
@@ -27,14 +29,14 @@ int main(int argc, char **argv) {
     errx(1, "specify an argument, to be copied into the \"buffer\"");
   }
 
-  changeme = 0;
-  strcpy(buffer, argv[1]);
+  locals.changeme = 0;
+  strcpy(locals.buffer, argv[1]);
 
-  if (changeme == 0x496c5962) {
+  if (locals.changeme == 0x496c5962) {
     puts("Well done, you have successfully set changeme to the correct value");
   } else {
     printf("Getting closer! changeme is currently 0x%08x, we want 0x496c5962\n",
-        changeme);
+        locals.changeme);
   }
 
   exit(0);

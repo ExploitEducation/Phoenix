@@ -26,18 +26,20 @@ void complete_level() {
 }
 
 int main(int argc, char **argv) {
-  volatile int (*fp)();
-  char buffer[64];
+  struct {
+    char buffer[64];
+    volatile int (*fp)();
+  } locals;
 
   printf("%s\n", BANNER);
 
-  fp = NULL;
-  gets(buffer);
+  locals.fp = NULL;
+  gets(locals.buffer);
 
-  if (fp) {
-    printf("calling function pointer @ %p\n", fp);
+  if (locals.fp) {
+    printf("calling function pointer @ %p\n", locals.fp);
     fflush(stdout);
-    fp();
+    locals.fp();
   } else {
     printf("function pointer remains unmodified :~( better luck next time!\n");
   }

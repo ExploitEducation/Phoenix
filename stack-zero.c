@@ -21,15 +21,17 @@
 char *gets(char *);
 
 int main(int argc, char **argv) {
-  volatile int changeme;
-  char buffer[64];
+  struct {
+    char buffer[64];
+    volatile int changeme;
+  } locals;
 
   printf("%s\n", BANNER);
 
-  changeme = 0;
-  gets(buffer);
+  locals.changeme = 0;
+  gets(locals.buffer);
 
-  if (changeme != 0) {
+  if (locals.changeme != 0) {
     puts("Well done, the 'changeme' variable has been changed!");
   } else {
     puts(

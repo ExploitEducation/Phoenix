@@ -68,7 +68,7 @@ void logit(char *pw) {
   char buf[2048];
 
   snprintf(buf, sizeof(buf), "Login from %s as [%s] with password [%s]\n",
-           hostname, username, pw);
+      hostname, username, pw);
 
   fprintf(output, buf);
 }

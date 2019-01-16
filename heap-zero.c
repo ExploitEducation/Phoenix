@@ -38,7 +38,6 @@ void nowinner() {
 int main(int argc, char **argv) {
   struct data *d;
   struct fp *f;
-  int i;
 
   printf("%s\n", BANNER);
 

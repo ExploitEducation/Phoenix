@@ -37,6 +37,12 @@ int main(int argc, char **argv) {
   char *ptr;
   printf("%s\n", BANNER);
 
+#ifdef NEWARCH
+  if (argv[1]) {
+    what = argv[1];
+  }
+#endif
+
   ptr = getenv("ExploitEducation");
   if (NULL == ptr) {
     // This style of comparison prevents issues where you may accidentally
